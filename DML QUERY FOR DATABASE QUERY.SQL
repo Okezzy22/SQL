@@ -68,3 +68,12 @@ UNION ALL
 SELECT [dbo].[HOUSEPRICES_CA].PRICE AS CA_PRICE, [dbo].[HOUSEPRICES_CA].BEDROOMS, [dbo].[HOUSEPRICES_CA].BATHROOMS, [dbo].[HOUSEPRICES_CA].PROVINCE
 FROM [dbo].[HOUSEPRICES_CA]
 ORDER BY STATE
+
+
+-- EXAMPLE QUERT; ACCESS ONLINE DATABASE Employment Growth from Industry Transitions GET RESULTS WHEN GROWTH RATE ABOVE 5%
+SELECT country_code, country_name, wb_region, wb_income, isic_section_name, industry_name, MAX(growth_rate_2015) AS growth_2015 , MAX(growth_rate_2016) AS growth_2016 , MAX(growth_rate_2017) AS growth_2017, MAX(growth_rate_2018) AS growth_2018, MAX(growth_rate_2019) AS growth_2019
+FROM public_use_industry_employment_growth 
+GROUP BY country_code, country_name, wb_region, wb_income, isic_section_index, industry_name
+HAVING MAX(growth_rate_2015) > '0.05' AND MAX(growth_rate_2016) > '0.05' AND MAX(growth_rate_2017) > '0.05' AND MAX(growth_rate_2018) > '0.05' AND MAX(growth_rate_2019) > '0.05'
+ORDER BY country_name
+LIMIT 5000

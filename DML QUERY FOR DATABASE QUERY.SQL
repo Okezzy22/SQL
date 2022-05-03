@@ -77,9 +77,3 @@ GROUP BY country_code, country_name, wb_region, wb_income, isic_section_index, i
 HAVING MAX(growth_rate_2015) > '0.05' AND MAX(growth_rate_2016) > '0.05' AND MAX(growth_rate_2017) > '0.05' AND MAX(growth_rate_2018) > '0.05' AND MAX(growth_rate_2019) > '0.05'
 ORDER BY country_name
 LIMIT 5000
-
-
---EXAMPLE QUERY: CALCULATE PROFIT FOR HOUSEPRICES_USA
-Select HOUSEID, STATE, CITY, BEDROOMS, BATHROOMS, YEAR, PRICE, PRICE*0.3 as PROFIT, ZIPCODE, HOUSETYPE
-From [dbo].[HOUSEPRICES_USA]
-ORDER BY HOUSEID

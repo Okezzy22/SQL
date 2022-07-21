@@ -70,7 +70,7 @@ FROM [dbo].[HOUSEPRICES_CA]
 ORDER BY STATE
 
 
--- EXAMPLE QUERT; ACCESS ONLINE DATABASE Employment Growth from Industry Transitions GET RESULTS WHEN GROWTH RATE FOR EACH YEAR ABOVE 5%
+-- EXAMPLE QUERY; ACCESS ONLINE DATABASE Employment Growth from Industry Transitions GET RESULTS WHEN GROWTH RATE FOR EACH YEAR ABOVE 5%
 SELECT country_code, country_name, wb_region, wb_income, isic_section_name, industry_name, MAX(growth_rate_2015) AS growth_2015 , MAX(growth_rate_2016) AS growth_2016 , MAX(growth_rate_2017) AS growth_2017, MAX(growth_rate_2018) AS growth_2018, MAX(growth_rate_2019) AS growth_2019
 FROM public_use_industry_employment_growth 
 GROUP BY country_code, country_name, wb_region, wb_income, isic_section_index, industry_name
@@ -84,7 +84,7 @@ Select HOUSEID, STATE, CITY, BEDROOMS, BATHROOMS, YEAR, PRICE, PRICE*0.3 as PROF
 From [dbo].[HOUSEPRICES_USA]
 ORDER BY HOUSEID
 
-
+--EXAMPLE QUERY: CALCULATE DISCOUNT FOR HOUSEPRICES_USA
 SELECT  HOUSEID, PROVINCE, CITY, BEDROOMS, BATHROOMS, PRICE, PRICE/200 AS DISCOUNT
 FROM [dbo].[HOUSEPRICES_CA]
 WHERE PROVINCE = 'ALBERTA'
